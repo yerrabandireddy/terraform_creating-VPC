@@ -15,16 +15,6 @@ pipeline{
             }
         
         }
-        stage("Approval"){
-            steps{
-            script{
-                timeout(time: 2, unit: ' hours'){
-                input(id: 'Deploy', message: "Deploy ${params.workspace}?", ok: "Deploy" )
-                }
-            }
-
-                
-            }
         }
     }
 }
