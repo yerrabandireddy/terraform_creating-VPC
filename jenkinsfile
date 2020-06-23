@@ -6,7 +6,11 @@ pipeline{
     }
     stages{
         stage("cloaning_repo"){
-        git "https://github.com/yerrabandireddy/terraform_creation-VPC"
+            steps{
+            git "https://github.com/yerrabandireddy/terraform_creation-VPC"
+            }
+        
         }
     }
 }
+ 
