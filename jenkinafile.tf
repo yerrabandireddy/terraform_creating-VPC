@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                git url:'yerrabandireddy/terraform_creating-VPC.git"
+                git 'https://github.com/yerrabandireddy/terraform_creating-VPC.git'
             }
         }
         stage ('Approval') 
