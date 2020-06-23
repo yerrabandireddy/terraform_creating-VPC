@@ -26,8 +26,8 @@ pipeline{
                  ls -l
                  echo "creating a VPC"
                  terraform init
-                 terraform workspace new $(params.namespace) || true
-                 terraform workspace select $(params.namespace)
+                 terraform workspace new ${params.namespace} || true
+                 terraform workspace select ${params.namespace}
                  terraform plan
                  """
              }
