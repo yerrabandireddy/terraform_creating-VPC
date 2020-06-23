@@ -15,7 +15,50 @@ pipeline{
             }
         
         }
-        
+        stage("TF plan"){
+         when{
+             expression{params.VPC == "create"}
+         }
+         steps{
+             script{
+                 sh """
+                 pwd
+                 ls -l
+                 echo "creating a VPC"
+                 terraform init
+                 terraform workspace new $(params.namespace) || true
+                 terraform workspace select $(params.namespace)
+                 terraform plan
+                 """
+             }
+         }
+        }
+        stage("TF apply"){
+            when{
+                expression{params.VPC == "create"}
+            }
+         steps{
+             script{
+                 sh """
+                 terraform apply -input=false -auto-approve
+                   """
+             }
+         }   
+        }
+        stage("TF destroy"){
+            when{
+                expression{
+                    params.VPC == "destroy"
+                }
+            }
+            steps{
+                script{
+                    sh"""
+                    terraform workspace select $(params.namespace)
+                    terraform destroy -auto-approve
+                    """
+                }
+            }
+        }
     }
 }
-  
