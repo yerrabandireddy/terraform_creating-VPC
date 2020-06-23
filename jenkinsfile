@@ -10,10 +10,16 @@ pipeline{
                  checkout([$class: 'GitSCM',                                
                  branches: [[name: "origin/master"]], 
 
-                 userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creating-VPC.git''']]])
-                             
+                 userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creating-VPC.git0''']]])
+
             }
         
+        }
+        stage("Approval"){
+            script{
+                timeout(time: 2, unit: ' hours')
+                input(id: 'Deploy', message: "Deploy ${params.workspace}?, ok: "Deploy" )
+            }
         }
     }
 }
