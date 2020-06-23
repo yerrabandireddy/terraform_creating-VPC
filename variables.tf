@@ -7,3 +7,4 @@ variable "cidr_vpc" {
 variable "environment_tag" {
   description = "Environment tag"
   default = "Dev"
+  }
