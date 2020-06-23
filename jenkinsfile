@@ -13,11 +13,13 @@ pipeline{
                  userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creating-VPC.git''']]])
             
             }
+stage{
       steps{
               sh """
               pwd
               """
               }
+}
         
         }
     }
