@@ -10,7 +10,7 @@ pipeline{
                  checkout([$class: 'GitSCM',                                
                  branches: [[name: "origin/master"]], 
 
-                 userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creating-VPC.git0''']]])
+                 userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creating-VPC.git''']]])
                              
             }
         
