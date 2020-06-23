@@ -6,11 +6,14 @@ pipeline{
     }
     stages{
         stage("cloaning_repo"){
-            steps{
-            git "https://github.com/yerrabandireddy/terraform_creation-VPC"
+            steps{                
+                 checkout([$class: 'GitSCM',                                
+                 branches: [[name: "origin/master"]], 
+
+                 userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_creation-VPC.git''']]])
+            
             }
         
         }
     }
 }
- 
