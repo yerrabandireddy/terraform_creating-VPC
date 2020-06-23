@@ -7,18 +7,14 @@ pipeline {
     stages {
         stage('checkout') {
             steps {
-                                 git 'https://github.com/yerrabandireddy/terraform_create-VPC.git'
+                   checkout([$class: 'GitSCM',                                
+                                branches: [[name: "origin/master"]], 
+
+                                userRemoteConfigs: [[url:'''https://github.com/yerrabandireddy/terraform_create-VPC.git''']]])
+                                 
             }
         }
-        stage ('Approval') 
-        {
-            steps {
-              script {
-                timeout(time: 2, unit: 'HOURS') {
-                input(id: "Deploy", message: "Deploy ${params.workspace}?", ok: 'Deploy')
-                 }
-              }
-            }
+        
         }
         stage('TF Plan') {
             when {
