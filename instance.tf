@@ -1,4 +1,5 @@
 provider "aws"{
+    provider.aws: version = "~> 2.67"
     region = "ap-south-1"
 }
 resource "aws_instance" "testInstance" {
