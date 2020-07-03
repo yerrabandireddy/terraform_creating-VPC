@@ -1,5 +1,6 @@
-provider "aws"{
-    region = "ap-south-1"
+provider "aws" {
+  version = "~> 2.0"
+  region  = "ap-south-1"
 }
 resource "aws_instance" "testInstance" {
   ami           = var.instance_ami
