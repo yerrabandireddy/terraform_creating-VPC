@@ -1,4 +1,4 @@
-provider.aws: version = "~> 2.69"required_providers {
+aws: version = "~> 2.69"required_providers {
   {
 # shared_credentials_file = "/root/.aws/credentials"
 
